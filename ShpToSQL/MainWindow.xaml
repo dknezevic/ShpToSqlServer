@@ -1,0 +1,57 @@
+﻿<Window x:Name="window" x:Class="ShpToSQL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sqlTools="clr-namespace:ShpToSql.SqlConnectionControl"
+        Title="Import Shape file to SQL Server" Width="525" ResizeMode="NoResize" SizeToContent="Height">
+    <StackPanel Margin="10">
+        <sqlTools:SqlConnectionStringBuilder x:Name="sqlConnectionStringBuilder" Height="230" Header="Database connection" ConnectionString="{Binding CString, ElementName=window}"/>
+        <GroupBox Margin="0,10,0,0" >
+            <GroupBox.Header>
+                <TextBlock Text="ShapeFile import"
+                       FontSize="14"
+                       FontWeight="Bold" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="190"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <GroupBox Grid.Column="1" Margin="5" Header="Load">
+                    <StackPanel>
+                        <StackPanel Grid.Column="1" >
+                            <TextBox TextWrapping="NoWrap" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Text="Select Shapefile" Name="_shapefilePath" IsReadOnly="True" BorderThickness="0"/>
+                            <Button Height="25" Margin="5" Content="Browse..."  Command="{Binding BrowseKtBernAchsenCommand}" Click="Button_Click" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <Label Grid.Row="1" Content="Code Page" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBox Grid.Column="1" TextWrapping="NoWrap" Text="65001" Name="_enconding" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="5"/>
+                        </StackPanel>
+                        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Width="200" Height="25" Margin="5" Content="Load Shapefile"  Click="Button_Click_1" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Column="1" Grid.Row="1" Margin="5" Header="Convert">
+                    <StackPanel  Grid.Row="3" Grid.Column="1">
+                        <Label Content="Destination table name" HorizontalAlignment="Center"/>
+                        <TextBox TextWrapping="NoWrap" Name="_tableName" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="5"/>
+                        <Label Content="Primary key" HorizontalAlignment="Center"/>
+                        <TextBox TextWrapping="NoWrap" Name="_primaryKey" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="5"/>
+                        <Button  Height="25" Content="Start Import"  Click="Button_Click_2" VerticalAlignment="Center" Name="_startImportBtn" Margin="10"/>
+                    </StackPanel>
+                </GroupBox>
+                <ScrollViewer Grid.RowSpan="2">
+                    <StackPanel Name="_textBoxPanel"/>
+                </ScrollViewer>
+
+                <Border Grid.Row="2" Grid.ColumnSpan="2" Margin="2,3,2,2" CornerRadius="10" BorderThickness="1" BorderBrush="LightGray" Background="AliceBlue">
+                    <TextBlock Text="Please load the shape file" HorizontalAlignment="Center" VerticalAlignment="Center" Name="_status"/>
+                </Border>
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</Window>

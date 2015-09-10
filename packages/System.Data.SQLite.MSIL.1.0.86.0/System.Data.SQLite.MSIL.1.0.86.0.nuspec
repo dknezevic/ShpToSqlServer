@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>System.Data.SQLite.MSIL</id>
+    <version>1.0.86.0</version>
+    <authors>SQLite Development Team</authors>
+    <owners>SQLite Development Team</owners>
+    <licenseUrl>http://www.sqlite.org/copyright.html</licenseUrl>
+    <projectUrl>http://system.data.sqlite.org/</projectUrl>
+    <iconUrl>http://system.data.sqlite.org/images/sqlite32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An ADO.NET provider for SQLite (managed-only).</description>
+    <copyright>Public Domain</copyright>
+    <language>en-US</language>
+    <tags>sqlite database ado.net provider interop</tags>
+  </metadata>
+</package>
